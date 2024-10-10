@@ -60,28 +60,8 @@ def send_file(file_path):
 
 
     question = (
-    "You are a journalist, and today is 2024-Oct-07. Using the Moonchain data, please write an English daily report on Moonchain. "
-    "The report should be written in a positive tone.\n"
-    "06-October-2024 Moonchain Data info begin.\n"
-    "'Active accounts' has the value of 421.\n"
-    "'Average transaction fee' has the value of 2.247460462557913 MXC.\n"
-    "'Number of new transactions' has the value of 2930 Txn.\n"
-    "'Number of new blocks' has the value of 1362.\n"
-    "'Average size of blocks' has the value of 1441 bytes.\n"
-    "'Average amount of reward' has the value of 0.08810875097847262 MXC.\n"
-    "'Average gas price' has the value of 14229.104286258942 Gwei.\n"
-    "'Number of new contracts' has the value of 7.\n"
-    "06-October-2024 Data info end.\n\n"
-    "05-October-2024 Moonchain Data info begin.\n"
-    "'Active accounts' has the value of 439.\n"
-    "'Average transaction fee' has the value of 2.7251766384381777 MXC.\n"
-    "'Number of new transactions' has the value of 2463 Txn.\n"
-    "'Number of new blocks' has the value of 1157.\n"
-    "'Average size of blocks' has the value of 1339 bytes.\n"
-    "'Average amount of reward' has the value of 0.0702911272750491 MXC.\n"
-    "'Average gas price' has the value of 21741.112736579213 Gwei.\n"
-    "'Number of new contracts' has the value of 11.\n"
-    "06-October-2024 Data info end."
+    f"You are a journalist, and today is {today}. Using the Moonchain data, please write an English daily report on Moonchain. "
+    "The report should be written in a positive tone. Limit the report to a maximum of 800 words\n"
     )
     # Lese den Inhalt der CSV-Datei, um die Daten für die Frage zu sammeln
     all_info = ""
@@ -93,7 +73,7 @@ def send_file(file_path):
             all_info += line + " "
 
     # Füge die gesammelten Informationen zur Frage hinzu
-    #question += f"Data info begin. {all_info.strip()} Data info end.\n"
+    question += f"Data info begin. {all_info.strip()} Data info end.\n"
 
     # Debug: Frage anzeigen
     print(f"Question: {question}")

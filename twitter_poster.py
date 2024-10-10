@@ -8,7 +8,7 @@ from datetime import datetime
 from dotenv import load_dotenv
 
 # Lade Umgebungsvariablen aus der .env-Datei
-load_dotenv()
+load_dotenv(dotenv_path=os.path.join(os.path.dirname(__file__), '.env'))
 
 # Twitter API-Schlüssel und Zugangsdaten (ersetzen Sie diese durch Ihre eigenen)
 api_key = os.getenv("TWITTER_API_KEY")
@@ -101,6 +101,11 @@ def send_to_twitter(api, messages):
 
 # Funktion, die die gesamte Logik ausführt
 def post_report_to_twitter(json_file_path):
+    print("API Key:", api_key)
+    print("API Key Secret:", api_key_secret)
+    print("Access Token:", access_token)
+    print("Access Token Secret:", access_token_secret)
+
     try:
         # Die Antwort aus der JSON-Datei lesen
         response = read_response_from_json(json_file_path)
@@ -123,3 +128,5 @@ def post_report_to_twitter(json_file_path):
         print(e)
     except Exception as e:
         print(f"Ein Fehler ist aufgetreten: {e}")
+
+        
